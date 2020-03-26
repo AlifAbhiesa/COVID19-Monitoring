@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>AdminLTE 3 | Starter</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  
+
+ 
+  <!-- Content Wrapper. Contains page content -->
+  <div style="margin-left: 0px; padding-top: 2%;" class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">COVID-19 Monitoring</h1><h3>
+              <label id="country"> Country </label>/
+              <label id="date"> Date </label></h3>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <select onchange="getData()" id="countrySelect" class="form-control select2" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                <option selected="selected" value="Indonesia">--- Pick One --</option>
+                
+              </select>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+              <!-- small box -->
+              <div style="text-align: center; background-color: rgb(236, 146, 65);" class="small-box">
+                <div class="inner">
+                  <h3><label id="positif">150</label></h3>
+        
+                  <p>Positif</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- small box -->
+                <div style="text-align: center; background-color: rgb(229, 114, 53);" class="small-box">
+                  <div class="inner">
+                    <h3><label id="sembuh">150</label></h3>
+          
+                    <p>Sembuh</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <!-- small box -->
+                <div style="text-align: center; background-color: rgb(225, 85, 45);" class="small-box">
+                  <div class="inner">
+                    <h3><label id="meninggal">150</label></h3>
+          
+                    <p>Meninggal</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-bag"></i>
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+
+          <div class="card">
+            <div style="background-color: rgb(229, 114, 53)" class="card-header">
+              <h3 class="card-title">Daily Data</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;" width="313" height="250" class="chartjs-render-monitor"></canvas>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+             
+    
+              <div class="card">
+                <div style="background-color: rgb(229, 114, 53)" class="card-header">
+                  <h3 class="card-title">Detail data harian</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>Tanggal</th>
+                      <th>Positif</th>
+                      <th>Sembuh</th>
+                      <th>Meninggal</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    
+                    
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+
+
+          <div class="card">
+            <div style="background-color: rgb(229, 114, 53)" class="card-header">
+              <h3 class="card-title">API DATA</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <li>
+                https://github.com/mathdroid/covid-19-api
+              </li>
+              <li>
+                https://github.com/pomber/covid19
+              </li>
+              <h1>Data Source</h1>
+              <li>
+                World Health Organization (WHO): https://www.who.int/
+              </li>
+              <li>
+                DXY.cn. Pneumonia. 2020. http://3g.dxy.cn/newh5/view/pneumonia.
+              </li>
+              <li>
+                BNO News: https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/
+              </li>
+              <li>
+                National Health Commission of the People’s Republic of China (NHC):
+http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
+              </li>
+             etc.
+
+
+
+              <h1>License</h1>
+              <p>MIT License 2020, Alif Abhiesa.<br>
+                
+                Transitively from the John Hopkins Site, the data may not be used for commercial purposes.</p>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+      
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  
+
+  <!-- Main Footer -->
+  <footer style="margin-left: 0px;" class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Made by &#x2665;
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2020 <a href="https://alif.engineer">Alif Abhiesa</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<script src="plugins/chart.js/Chart.min.js"></script>
+
+<script>
+  getData();
+
+  function getData() {
+
+    var country = document.getElementById("countrySelect").value;
+    $('#example1').dataTable().fnDestroy();
+    var table = $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "order": [[ 0, "desc" ]]
+    });
+    
+
+    var chartDataMeninggal = [];
+    var chartDataSembuh = [];
+    var chartDataPositif = [];
+    var chartLabel = [];
+
+    // dat card
+    $.ajax({
+        url:"https://covid19.mathdro.id/api/countries/"+country,
+        type:"GET",
+        success:function(response) {
+          $('#date').text(response.lastUpdate);
+          response.confirmed.value ? $('#positif').text(response.confirmed.value) : $('#positif').text('Not available yet today');
+          response.deaths.value ? $('#meninggal').text(response.deaths.value) : $('#meninggal').text('Not available yet today');
+          response.recovered.value ? $('#sembuh').text(response.recovered.value) : $('#sembuh').text('Not available yet today');
+        },
+        error:function(){
+          alert('error');
+        }
+    });
+
+    //data bar chart
+    $.ajax({
+        url:"https://pomber.github.io/covid19/timeseries.json",
+        type:"GET",
+        success:function(response) {
+          var date = new Date();
+          var date2 = date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+          var lastData = response[country].length-1;
+          var data = response[country][lastData];
+          $('#country').text(country);
+          
+          for(i = response[country].length-11; i < response[country].length; i++){
+              response[country][i].confirmed ? chartDataPositif.push(response[country][i].confirmed) : chartDataPositif.push(0);
+              response[country][i].deaths ? chartDataMeninggal.push(response[country][i].deaths) : chartDataMeninggal.push(0);
+              response[country][i].recovered ? chartDataSembuh.push(response[country][i].recovered) : chartDataSembuh.push(0);
+              response[country][i].date ? chartLabel.push(response[country][i].date) : chartLabel.push(0);
+          }
+
+          chartShowData(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel);
+          
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+
+      // data country 
+
+      $.ajax({
+        url:"https://covid19.mathdro.id/api/countries",
+        type:"GET",
+        success:function(response) {
+
+          console.log(response["countries"]);
+
+          for(i=0;i< response["countries"].length; i++){
+              $('#countrySelect')
+                  .append($("<option></option>")
+                              .attr("value",response["countries"][i]["name"])
+                              .text(response["countries"][i]["name"] +' - '+response["countries"][i]["iso3"])); 
+          }
+          
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+}
+  
+
+function chartShowData(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel){
+
+  drawTable2(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel);
+
+  var areaChartData = {
+      labels  : chartLabel,
+      datasets: [
+        {
+          label               : 'Positif',
+          backgroundColor     : 'rgb(236, 146, 65)',
+          borderColor         : 'rgb(236, 146, 65)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : chartDataPositif,
+        },
+        {
+          label               : 'Meninggal',
+          backgroundColor     : 'rgb(229, 114, 53)',
+          borderColor         : 'rgb(229, 114, 53)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : chartDataMeninggal,
+        },
+        {
+          label               : 'Sembuh',
+          backgroundColor     : 'rgb(229, 114, 53)',
+          borderColor         : 'rgb(229, 114, 53)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : chartDataSembuh,
+        },
+      ]
+    }
+
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = jQuery.extend(true, {}, areaChartData)
+    
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: barChartData,
+      options: barChartOptions
+    })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+
+    var stackedBarChart = new Chart(stackedBarChartCanvas, {
+      type: 'bar', 
+      data: stackedBarChartData,
+      options: stackedBarChartOptions
+    })
+
+}
+
+function drawTable2(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel){
+  // console.log(chartLabel);
+  var table = $("#example1").DataTable();
+
+  for(i=0;i < chartDataPositif.length;i++){
+    table.row.add( [
+        chartLabel[i], chartDataPositif[i],chartDataSembuh[i],chartDataMeninggal[i]
+        ] ).draw( false );
+
+    // console.log(chartDataPositif);
+  }
+
+    
+}
+
+
+    
+  
+</script>
+</body>
+</html>
