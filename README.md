@@ -20,6 +20,5 @@ Cara Berkontribusi
 ------------------
 1. Sign in / Sign up github
 2. Kunjungi halaman repository
-3. Klik new pull request
-4. Pilih salah satu fitur branch yang sedang dikembangkan
+3. Email abhiesa24@gmail.com untuk request contributor
 
