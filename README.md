@@ -22,3 +22,18 @@ Cara Berkontribusi
 2. Kunjungi halaman repository
 3. Email abhiesa24@gmail.com untuk request contributor
 
+
+Data Source
+-----------
+1. World Health Organization (WHO): https://www.who.int/
+2. DXY.cn. Pneumonia. 2020. http://3g.dxy.cn/newh5/view/pneumonia.
+3. BNO News: https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/
+4. National Health Commission of the People’s Republic of China (NHC): http://www.nhc.gov.cn/xcs/yqtb/5. list_gzbd.shtml
+etc.
+
+
+API
+----
+1. https://github.com/mathdroid/covid-19-api
+2. https://github.com/pomber/covid19
+3. https://indonesia-covid-19.mathdro.id/api/
