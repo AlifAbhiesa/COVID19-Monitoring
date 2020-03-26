@@ -8,8 +8,6 @@ Introduction
 
 **COVID19-Monitoring** Adalah sebuah website dashboard dengan tujuan untuk berkontribusi dalam menyebarkan informasi penyebaran data virus **COVID-19** dan mengajak teman teman developer terutama dari **ITENAS** untuk bergabung. Website ini dibangun menggunakan **Bootstrap CSS, AdminLTE, dan jQuery**, beberapa tools yang sangat mudah digunakan dengan tujuan beberapa kontributor dapat bergabung dalam pengembangannya.
 
-**Preview on [AdminLTE.io](https://adminlte.io/themes/v3)**
-
 Tampilan Website COVID-19 Monitoring
 ------------------------------------
 Visit website http://covid.itenas.tech untuk melihat langsung
@@ -19,7 +17,7 @@ Visit website http://covid.itenas.tech untuk melihat langsung
 Cara Berkontribusi
 ------------------
 1. Sign in / Sign up github
-2. Kunjungi halaman repository
+2. Kunjungi halaman repository https://github.com/AlifAbhiesa/COVID19-Monitoring
 3. Email abhiesa24@gmail.com untuk request contributor
 
 
