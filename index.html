@@ -379,10 +379,11 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
         type:"GET",
         success:function(response) {
 
-          console.log(response['data'].length);
-
+          
           for(i = 0; i < response['data'].length; i++){
-            $('#courselItemProv').append('<div class="carousel-item">'
+
+            if(response['data'][i]['provinsi'] != "Indonesia"){
+              $('#courselItemProv').append('<div class="carousel-item">'
             +'<div class="card">'
               +'<div style="background-color: rgb(229, 114, 53)" class="card-header">'
                 +' <center style="font-family: monospace; font-weight: bold; font-size: x-large;">'+ response['data'][i]['provinsi'] +'</center>'
@@ -426,6 +427,9 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
                                             +'</div>'
                                             +'</div>'
                                             +'</div>');
+            }
+
+            
           }
 
 // 
