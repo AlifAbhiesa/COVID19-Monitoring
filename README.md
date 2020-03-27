@@ -6,7 +6,7 @@ Introduction
 [![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
 [![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
 
-**COVID19-Monitoring** Adalah sebuah website dashboard dengan tujuan untuk berkontribusi dalam menyebarkan informasi penyebaran data virus **COVID-19** dan mengajak teman teman developer terutama dari **ITENAS** untuk bergabung. Website ini dibangun menggunakan **Bootstrap CSS, AdminLTE, dan jQuery**, beberapa tools yang sangat mudah digunakan dengan tujuan beberapa kontributor dapat bergabung dalam pengembangannya.
+**COVID19-Monitoring** Adalah sebuah website dashboard dengan tujuan untuk berkontribusi dalam menyebarkan informasi penyebaran data virus **COVID-19** dan mengajak teman teman developer terutama dari **ITENAS** untuk bergabung. Website ini dibangun menggunakan **Bootstrap CSS, AdminLTE, dan jQuery**, beberapa tools yang sangat mudah digunakan dengan tujuan memudahkan kontributor dapat bergabung dalam pengembangannya.
 
 Tampilan Website COVID-19 Monitoring
 ------------------------------------
