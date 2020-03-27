@@ -105,6 +105,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
           </div>
 
+          
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <h2>Data Per Provinsi</h2>
+            <div id="courselItemProv" class="carousel-inner">
+              <div class="carousel-item active">
+
+                <div class="card">
+                  <div style="background-color: rgb(229, 114, 53)" class="card-header">
+                  </div>
+                  <div class="card-body">
+                    <center style="font-family: monospace;">Swipe ke kiri untuk melihat data kasus setiap provinsi</center>
+                  </div>
+                </div>
+
+
+              </div>
+              
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
           <div class="card">
             <div style="background-color: rgb(229, 114, 53)" class="card-header">
               <h3 class="card-title">Daily Data</h3>
@@ -258,8 +286,11 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
 
 <script>
   getData();
+  
 
   function getData() {
+
+  hideShowDataProvinsi();
 
     $('#exampleModalCenter').modal('toggle');
 
@@ -328,8 +359,6 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
         type:"GET",
         success:function(response) {
 
-          console.log(response["countries"]);
-
           for(i=0;i< response["countries"].length; i++){
               $('#countrySelect')
                   .append($("<option></option>")
@@ -343,7 +372,82 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
        }
 
       });
+
+      // kasus per provinsi
+      $.ajax({
+        url:"https://indonesia-covid-19.mathdro.id/api/provinsi",
+        type:"GET",
+        success:function(response) {
+
+          console.log(response['data'].length);
+
+          for(i = 0; i < response['data'].length; i++){
+            $('#courselItemProv').append('<div class="carousel-item">'
+            +'<div class="card">'
+              +'<div style="background-color: rgb(229, 114, 53)" class="card-header">'
+                +' <center style="font-family: monospace; font-weight: bold; font-size: x-large;">'+ response['data'][i]['provinsi'] +'</center>'
+                +'</div>'
+                +'<div class="card-body">'
+                  +'<div class="row">'
+                    +' <div class="col-lg-4">'
+                      +'<div style="text-align: center; background-color: rgb(236, 146, 65);" class="small-box">'
+                        +'<div class="inner">'
+                          +' <h3><label id="">'+ response['data'][i]['kasusPosi'] +'</label></h3>'
+                          +'<p>Positif</p>'
+                          +'</div>'
+                          +'<div class="icon">'
+                            +'<i class="ion ion-bag"></i>'
+                            +'</div>'
+                            +'</div>'
+                            +'</div>'
+                            +'<div class="col-lg-4">'
+                              +'<div style="text-align: center; background-color: rgb(229, 114, 53);" class="small-box">'
+                                +'<div class="inner">'
+                                  +'<h3><label id="sembuhProf">'+ response['data'][i]['kasusSemb'] +'</label></h3>'
+                                  +'<p>Sembuh</p>'
+                                  +'</div>'
+                                  +'<div class="icon">'
+                                    +'<i class="ion ion-bag"></i>'
+                                    +'</div>'
+                                    +'</div>'
+                                    +'</div>'
+                                    +'<div class="col-lg-4">'
+                                      +'<div style="text-align: center; background-color: rgb(225, 85, 45);" class="small-box">'
+                                        +'<div class="inner">'
+                                          +'<h3><label id="meninggalProf">'+ response['data'][i]['kasusMeni'] +'</label></h3>'
+                                          +' <p>Meninggal</p>'
+                                          +'</div>'
+                                          +'<div class="icon">'
+                                            +'<i class="ion ion-bag"></i>'
+                                            +' </div>'
+                                            +'</div>'
+                                            +'</div>'
+                                            +'</div>'
+                                            +'</div>'
+                                            +'</div>'
+                                            +'</div>');
+          }
+
+// 
+          
+          
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
 }
+
+function hideShowDataProvinsi(){
+    var country = document.getElementById("countrySelect").value;
+
+    if(country != "Indonesia"){
+      $('#carouselExampleIndicators').css('display','none');
+    }else{
+      $('#carouselExampleIndicators').css('display','block');
+    }
+  }
   
 
 function chartShowData(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel){
