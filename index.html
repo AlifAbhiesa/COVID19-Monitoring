@@ -183,6 +183,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.col -->
           </div>
 
+          
+              <div class="row">
+                <h2>Berita Terbaru</h2>
+                <div id="newsPlace" style="overflow-x:auto;width:100%;height:100%;display:flex">
+
+              </div>
+            </div>
+
 
           <div class="card">
             <div style="background-color: rgb(229, 114, 53)" class="card-header">
@@ -216,6 +224,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
               </li>
              etc.
+
+             <h1>News Source</h1>
+             <li>
+               Detik.com
+             </li>
 
 
 
@@ -282,13 +295,14 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
 <script src="dist/js/adminlte.min.js"></script>
 
 <script src="plugins/chart.js/Chart.min.js"></script>
+<script src="news.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> -->
 
 <script>
   getData();
-  
+  getNews();
 
-  function getData() {
+function getData() {
 
   hideShowDataProvinsi();
 
@@ -541,11 +555,11 @@ function chartShowData(chartDataPositif, chartDataSembuh, chartDataMeninggal, ch
 }
 
 function drawTable2(chartDataPositif, chartDataSembuh, chartDataMeninggal, chartLabel){
-  setTimeout(
-  function() 
-  {
-    $( "#closeModal" ).click();
-  }, 3000);
+  // setTimeout(
+  // function() 
+  // {
+  //   $( "#closeModal" ).click();
+  // }, 3000);
   
   var table = $("#example1").DataTable();
   table.clear();
