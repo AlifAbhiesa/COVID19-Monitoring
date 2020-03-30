@@ -331,9 +331,9 @@ function getData() {
         type:"GET",
         success:function(response) {
           $('#date').text(response.lastUpdate);
-          response.confirmed.value ? $('#positif').text(response.confirmed.value) : $('#positif').text('Not available yet today');
-          response.deaths.value ? $('#meninggal').text(response.deaths.value) : $('#meninggal').text('Not available yet today');
-          response.recovered.value ? $('#sembuh').text(response.recovered.value) : $('#sembuh').text('Not available yet today');
+          response.confirmed.value ? $('#positif').text(response.confirmed.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#positif').text('Not available yet today');
+          response.deaths.value ? $('#meninggal').text(response.deaths.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#meninggal').text('Not available yet today');
+          response.recovered.value ? $('#sembuh').text(response.recovered.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#sembuh').text('Not available yet today');
         },
         error:function(){
           alert('error');
