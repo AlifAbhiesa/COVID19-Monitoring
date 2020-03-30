@@ -27,27 +27,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a href="http://covid.itenas.tech">
-    <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px"/>
-    </a>    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Faq</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://covid.itenas.tech/kasusSekitar.html">Kasus Disekitar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
-        </li>
-        
-      </ul>
-    </div>
-  </nav>
+  <a href="http://covid.itenas.tech">
+  <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px"/>
+  </a>    
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="http://covid.itenas.tech/faq.html">Faq</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://covid.itenas.tech/kasusSekitar.html">Kasus Disekitar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://covid.itenas.tech/contacts.html">Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
 <div class="row">
     <h2 class="pl-5">Kasus disekitar anda</h2>
     <center><select onchange="getDataDistance()" id="filterRadius" class="form-control mx-5" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -145,6 +148,7 @@ function haversineDistance(lat1, lon1, lat2, lon2){
 }
 
 function getDataDistance(){
+  $('#exampleModalCenter').modal('toggle');
     $.ajax({
         url:"https://covid19-public.digitalservice.id/analytics/longlat/",
         type:"GET",
@@ -174,6 +178,12 @@ function getDataDistance(){
             }
             data.sort((a, b) => (a.distance > b.distance) ? 1 : -1);
 
+            setTimeout(
+            function() 
+            {
+                $( "#closeModal" ).click();
+            }, 3000);
+
             for(i=0; i < data.length; i++){
                 $('#kasusSekitar').append('<div class="card bg-white col-12 col-lg-4 p-2">'
                     +'<div class="card-body">'
@@ -183,6 +193,8 @@ function getDataDistance(){
                     +'</div>'
                     +'</div>')
             }
+
+            
        },
        error:function(){
         alert("error");

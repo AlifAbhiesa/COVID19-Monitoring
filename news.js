@@ -17,7 +17,11 @@ function getNews() {
                 +'</div>'
                 +'</div>');
             }
-            $( "#closeModal" ).click();
+            setTimeout(
+            function() 
+            {
+                $( "#closeModal" ).click();
+            }, 3000);
         },
         error:function(){
             alert('error');
