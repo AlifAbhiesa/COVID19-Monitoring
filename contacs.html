@@ -1,0 +1,356 @@
+<html>
+    <title>Contacs</title>
+    <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <body>
+        <div class="card">
+            <div style="background-color: rgb(229, 114, 53)" class="card-header">
+              <h3 class="card-title">Contacts</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Kota/Kab</th>
+                  <th>Call Center</th>
+                  <th>Hotline</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>Kabupaten Bandung</td>
+                        <td>-</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50"  href="tel:0821 1821 9287" data-v-57ec40fb="">
+                            <kbd> 0821 1821 9287</kbd>
+                          </a></td>
+                    </tr>  
+                    <tr>
+                        <td>2</td>
+                        <td>Kabupaten Bandung Barat</td>
+                        <td>-</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0895-2243-4611" data-v-57ec40fb="">
+                            <kbd>0895-2243-4611</kbd>
+                          </a></td>
+                    </tr> 
+                    <tr>
+                        <td>3</td>
+                        <td>Kabupaten Bekasi</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                            <kbd>112</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                            <kbd>119</kbd>
+                          </a></td>
+                        <td colspan="3"><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(021) 89910039" data-v-57ec40fb="">
+                            <kbd>(021) 89910039</kbd> 
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0811-113-9927" data-v-57ec40fb="">
+                            <kbd>0811-113-9927</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0852-8398-0119" data-v-57ec40fb="">
+                            <kbd>0852-8398-0119</kbd>
+                          </a>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>4</td>
+                        <td>Kabupaten Bogor</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                            <kbd>112</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                            <kbd>119</kbd>
+                          </a></td>
+                        <td>-</td>
+                    </tr> 
+                    <tr>
+                        <td>5</td>
+                        <td>Kabupaten Ciamis</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                            <kbd>119</kbd>
+                          </a></td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0813-9448-9808" data-v-57ec40fb="">
+                            <kbd>0813-9448-9808</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0813-9448-9808" data-v-57ec40fb="">
+                            <kbd>0813-9448-9808</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0853-1499-3901" data-v-57ec40fb="">
+                            <kbd>0853-1499-3901</kbd>
+                          </a>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>6</td>
+                        <td>Kabupaten Cianjur</td>
+                        <td>-</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0853-2116-1119" data-v-57ec40fb="">
+                            <kbd>0853-2116-1119</kbd>
+                          </a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Kabupaten Cirebon</td>
+                        <td>-</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0231) 8800119" data-v-57ec40fb="">
+                            <kbd>(0231) 8800119</kbd>
+                          </a>
+                          <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0819-9880-0119" data-v-57ec40fb="">
+                            <kbd>0819-9880-0119</kbd>
+                          </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Kabupaten Garut</td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                          <kbd>119</kbd>
+                        </a></td>
+                        <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0262) 2802800" data-v-57ec40fb="">
+                            <kbd>(0262) 2802800</kbd>
+                          </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0811-204-0119" data-v-57ec40fb="">
+                           <kbd> 0811-204-0119</kbd>
+                          </a>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Kabupaten Indramayu</td>
+                      <td>-</td>
+                      <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0811-133-3314" data-v-57ec40fb="">
+                        <kbd>0811-133-3314</kbd>
+                      </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                    <td>10</td>
+                    <td>Kabupaten Karawang</td>
+                    <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                      <kbd>119</kbd>
+                    </a>
+                    <a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0899-9700-119" data-v-57ec40fb="">
+                      <kbd>0899-9700-119</kbd>
+                    </a>
+                  </td>
+                    <td>
+                     <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0852-8253-7355" data-v-57ec40fb="">
+                       <kbd> 0852-8253-7355</kbd>
+                      </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0821-2556-9259" data-v-57ec40fb="">
+                        <kbd>0821-2556-9259</kbd>
+                      </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0815-7437-1120" data-v-57ec40fb="">
+                        <kbd>0815-7437-1120</kbd>
+                      </a>
+                    </td>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>11</td>
+                    <td>Kabupaten Kuningan</td>
+                    <td>-</td>
+                    <td>
+                      <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0813-8828-4346" data-v-57ec40fb="">
+                        <kbd>0813-8828-4346</kbd>
+                      </a>
+                    </td>
+                 </tr>
+                 <tr>
+                  <td>12</td>
+                  <td>Kabupaten Majalengka</td>
+                  <td>-</td>
+                  <td> <a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0233) 829111" data-v-57ec40fb="">
+                    <kbd>(0233) 829111</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0813-2484-9727" data-v-57ec40fb="">
+                    <kbd>0813-2484-9727</kbd>
+                  </a></td>
+                  </tr>
+
+                <tr>
+                  <td>13</td>
+                  <td>Kabupaten Pangandaran</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0853-2064-3695" data-v-57ec40fb="">
+                   <kbd>0853-2064-3695</kbd> 
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>14</td>
+                  <td>Kabupaten Purwakarta</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>112</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0819-0951-4472" data-v-57ec40fb="">
+                    <kbd>0819-0951-4472</kbd>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>15</td>
+                  <td>Kabupaten Subang</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0813-2291-6001" data-v-57ec40fb="">
+                    <kbd>0813-2291-6001</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0821-1546-7455" data-v-57ec40fb="">
+                    <kbd>0821-1546-7455</kbd>
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>16</td>
+                  <td>Kabupaten Sukabumi</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0266) 6243816" data-v-57ec40fb="">
+                    <kbd>(0266) 6243816</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0812-1358-3160" data-v-57ec40fb="">
+                    <kbd>0812-1358-3160</kbd>
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>17</td>
+                  <td>Kabupaten Sumedang</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a></td>
+                  <td>-</td>
+                </tr>
+
+                <tr>
+                  <td>18</td>
+                  <td>Kabupaten Tasikmalaya</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0821-1962-8957" data-v-57ec40fb="">
+                    <kbd>0821-1962-8957</kbd>
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>19</td>
+                  <td>Kota Bandung</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>112</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a>
+                  </td>
+                  <td>-</td>
+                </tr>
+
+                <tr>
+                  <td>20</td>
+                  <td>Kota Banjar</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0852-2334-4119" data-v-57ec40fb="">
+                   <kbd>0852-2334-4119</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0821-2037-0313" data-v-57ec40fb="">
+                    <kbd>0821-2037-0313</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0853-5308-9099" data-v-57ec40fb="">
+                    <kbd>0853-5308-9099</kbd>
+                  </a></td>
+                </tr>  
+
+                <tr>
+                  <td>21</td>
+                  <td>Kota Bekasi</td>
+                  <td></a><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:081380027110" data-v-57ec40fb="">
+                   <kbd>081380027110</kbd>
+                  </a></td>
+                </tr> 
+
+                <tr>
+                  <td>22</td>
+                  <td>Kota Bogor</td>
+                  <td></a><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>112</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0251) 8363335" data-v-57ec40fb="">
+                    <kbd>(0251) 8363335</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:081-1111-6093" data-v-57ec40fb="">
+                    <kbd>081-1111-6093</kbd>
+                  </a></td>
+                </tr> 
+
+                <tr>
+                  <td>23</td>
+                  <td>Kota Cimahi</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0812-212-6257" data-v-57ec40fb="">
+                   <kbd>0812-212-6257</kbd>
+                  </a><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0812-2142-3039" data-v-57ec40fb="">
+                    <kbd>0812-2142-3039</kbd>
+                  </a></td>
+                </tr> 
+                
+                <tr>
+                  <td>24</td>
+                  <td>Kota Cirebon</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>112</kbd>
+                  </a></td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:(0231) 237303" data-v-57ec40fb="">
+                    <kbd>(0231) 237303</kbd>
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>25</td>
+                  <td>Kota Depok</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>112</kbd>
+                  </a>
+                  <a class="text-sm inline-block px-4 py-1 bg-blue-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:112" data-v-57ec40fb="">
+                    <kbd>119</kbd>
+                  </a>  
+                  </td>
+                  <td>-</td>
+                </tr>
+
+                <tr>
+                  <td>26</td>
+                  <td>Kota Sukabumi</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0800-1000-119" data-v-57ec40fb="">
+                    <kbd>0800-1000-119</kbd>
+                  </a></td>
+                </tr>
+
+                <tr>
+                  <td>27</td>
+                  <td>Kota Tasikmalaya</td>
+                  <td>-</td>
+                  <td><a class="text-sm inline-block px-4 py-1 bg-green-100 rounded mr-4 mb-4 md:m-1 text-gray-800 hover:opacity-50" href="tel:0811-213-3119" data-v-57ec40fb="">
+                    <kbd>0811-213-3119</kbd>
+                  </a></td>
+                </tr>
+
+                </tbody>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+    </body>
+</html>
