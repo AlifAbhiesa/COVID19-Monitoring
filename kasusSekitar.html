@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>COVID-19 Monitoring by IF TEAM</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a href="http://covid.itenas.tech">
+    <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px"/>
+    </a>    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Faq</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://covid.itenas.tech/kasusSekitar.html">Kasus Disekitar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+<div class="row">
+    <h2 class="pl-5">Kasus disekitar anda</h2>
+    <center><select onchange="getDataDistance()" id="filterRadius" class="form-control mx-5" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+        <option selected="selected" value="50">--- Filter Radius --</option>
+        <option value="300">300 KM</option>
+        <option value="200">200 KM</option>
+        <option value="100">100 KM</option>
+        <option value="50">50 KM</option>
+        
+      </select></center>
+</div>
+    <div class="container">
+
+        <div id="kasusSekitar" class="row p-2">
+
+            
+        </div>
+
+    </div>
+
+    <input hidden type="text" id="lat">
+    <input hidden type="text" id="long">
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div style="background: transparent;" class="modal-content">
+        
+        <div class="">
+          <center><img src="source.gif" width="100px" height="100px"></center>
+          
+        </div>
+        <button hidden id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqbm_elcDKWWLMF2YT9a8-9Q0fns2YTEo"></script>
+<script src="news.js"></script>
+<script>
+
+var pos;
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+    pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+
+    document.getElementById("lat").value = pos.lat;
+    document.getElementById("long").value = pos.lng; 
+    getDataDistance();
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+
+function haversineDistance(lat1, lon1, lat2, lon2){
+
+    Number.prototype.toRad = function() {
+        return this * Math.PI / 180;
+    }
+
+    var R = 6371; // km 
+    var x1 = lat2-lat1;
+    var dLat = x1.toRad();  
+    var x2 = lon2-lon1;
+    var dLon = x2.toRad();  
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                    Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);  
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c;
+    return (d);
+}
+
+function getDataDistance(){
+    $.ajax({
+        url:"https://covid19-public.digitalservice.id/analytics/longlat/",
+        type:"GET",
+        success:function(response) {
+            var lat = document.getElementById("lat").value;
+            var lng = document.getElementById("long").value;filterRadius
+            var radius = document.getElementById("filterRadius").value;
+            var distance = 0;
+            // console.log(response.data);
+            z=0;
+            var data = [];
+            for(i=0; i < response.data.length; i++){
+                if(response['data'][i]['alamat_longitude'] != null){
+                    var latDest = response['data'][i]['wilayah_status_stage_latitude'];
+                    var lngDest = response['data'][i]['wilayah_status_stage_longitude'];
+                    distance = haversineDistance(parseFloat(lat), lng, parseFloat(latDest), (lngDest));
+                    if(distance <= radius){
+                        data[z] = response['data'][i];
+                        data[z]['distance'] = haversineDistance(parseFloat(lat), lng, parseFloat(latDest), (lngDest));
+                        z++;
+                    }
+                    
+                }else{
+                    console.log('null');
+                }
+                
+            }
+            data.sort((a, b) => (a.distance > b.distance) ? 1 : -1);
+
+            for(i=0; i < data.length; i++){
+                $('#kasusSekitar').append('<div class="card bg-white col-12 col-lg-4 p-2">'
+                    +'<div class="card-body">'
+                    +'<h5 class="card-title">'+ data[i]['kecamatan_str']+', '+data[i]['kabkot_str'] +'</h5>'
+                    +'<p class="card-text">Status : <b>'+data[i]['status']+ '</b> Jarak : <b>' + data[i]['distance'].toFixed(2) +'</b> Km</p>'
+                    +'<a target="_blank" href="https://www.google.com/maps/dir/'+lat+','+lng+'/'+data[i]['wilayah_status_stage_latitude']+','+data[i]['wilayah_status_stage_longitude']+'/" class="card-link">Buka di Maps</a>'
+                    +'</div>'
+                    +'</div>')
+            }
+       },
+       error:function(){
+        alert("error");
+       }
+
+      });
+}
+</script>
+
+</html>
+
+  

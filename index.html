@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>COVID-19 Monitoring by Alif Abhiesa</title>
+  <title>COVID-19 Monitoring by IF TEAM</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -27,7 +27,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px"/>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Faq</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Kasus Disekitar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
   
 
  
@@ -259,7 +278,7 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
       Made by &#x2665;
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <a href="https://alif.engineer">Alif Abhiesa</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="https://github.com/AlifAbhiesa/COVID19-Monitoring/graphs/contributors">HMIF TEAM</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -301,7 +320,7 @@ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> -->
 
 <script>
-  getData();
+  // getData();
 
 function getData() {
   getNews();
@@ -331,9 +350,9 @@ function getData() {
         type:"GET",
         success:function(response) {
           $('#date').text(response.lastUpdate);
-          response.confirmed.value ? $('#positif').text(response.confirmed.value) : $('#positif').text('Not available yet today');
-          response.deaths.value ? $('#meninggal').text(response.deaths.value) : $('#meninggal').text('Not available yet today');
-          response.recovered.value ? $('#sembuh').text(response.recovered.value) : $('#sembuh').text('Not available yet today');
+          response.confirmed.value ? $('#positif').text(response.confirmed.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#positif').text('Not available yet today');
+          response.deaths.value ? $('#meninggal').text(response.deaths.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#meninggal').text('Not available yet today');
+          response.recovered.value ? $('#sembuh').text(response.recovered.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#sembuh').text('Not available yet today');
         },
         error:function(){
           alert('error');
