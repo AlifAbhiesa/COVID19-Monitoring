@@ -35,3 +35,25 @@ API
 1. https://github.com/mathdroid/covid-19-api
 2. https://github.com/pomber/covid19
 3. https://indonesia-covid-19.mathdro.id/api/
+
+DEVELOPER
+---------
+1. Download vscode (https://code.visualstudio.com/download)
+2. Open vscode
+3. Klik new terminal (Command prompt)
+
+!["COVID-19"](https://i.ibb.co/wCd26g7/Screenshot-at-Mar-30-12-53-50.png "COVID-19")
+
+4. Clone repository
+
+!["COVID-19"](https://i.ibb.co/3rsmKLh/Screenshot-at-Mar-30-12-57-07.png "COVID-19")
+
+5. Checkout ke branch developer
+
+!["COVID-19"](https://i.ibb.co/3s0pSfY/Screenshot-at-Mar-30-12-58-55.png "COVID-19")
+
+6. Lakukan coding sampai selesai, jika sudah push coding ke versioning control dengan mengetik command
+
+`git add .`
+`git commit -m`
+`git push origin developer-area `
