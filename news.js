@@ -1,4 +1,3 @@
-
 function getNews() {
     $.ajax({
         url:"http://newsapi.org/v2/everything?q=COVID-19&domains=detik.com&from=2020-03-01&sortBy=publishedAt&apiKey=3ea3b5c45dab4a8491123c8567648e72",
@@ -14,7 +13,7 @@ function getNews() {
                 +'</div>'
                 +'<h5 class="card-title">'+ response['articles'][i]['title'] +'</h5>'
                 +'<p class="card-text">'+ response['articles'][i]['description'] +'</p>'
-                +'<a href="'+response['articles'][i]['url']+'" style="color: burlywood;">Baca Selengkapnya ...</a><br>'
+                +'<a target="_blank" href="'+response['articles'][i]['url']+'" style="color: burlywood;">Baca Selengkapnya ...</a><br>'
                 +'</div>'
                 +'</div>');
             }
