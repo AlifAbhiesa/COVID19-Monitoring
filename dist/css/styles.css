@@ -26,8 +26,7 @@ h3#kematian {
     color: #d8232a;
 }
 
-.bg-white,
-.bg-white>a {
+a.small-box-footer {
     color: white !important;
 }
 
