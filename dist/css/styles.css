@@ -1,0 +1,97 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3#positif {
+    color: #ff9234;
+}
+
+h3#sembuh {
+    color: #219653;
+}
+
+h3#meninggal {
+    color: #d8232a;
+}
+
+h3#aktif {
+    color: #ff9234;
+}
+
+h3#kasus {
+    color: #219653;
+}
+
+h3#kematian {
+    color: #d8232a;
+}
+
+.bg-white,
+.bg-white>a {
+    color: white !important;
+}
+
+.rowMoreHidden {
+    display: none;
+}
+
+.rowMoreHidden {
+    display: none;
+}
+
+.small-box {
+    color: white;
+}
+
+.small-box .inner {
+    padding: 20px 0;
+}
+
+.small-box .inner h3 {
+    text-align: center;
+    font-size: 50px !important;
+}
+
+.small-box .inner p {
+    text-align: center;
+}
+
+.small-box-footer {
+    padding: 15px 0 !important;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+a.small-box-footer {
+    color: white;
+}
+
+.bg-orange-light {
+    background: #ff9234;
+}
+
+.bg-positif {
+    background: rgba(255, 146, 52, .8) !important;
+}
+
+.bg-positif:hover {
+    background: rgba(255, 146, 52, 1) !important;
+}
+
+.bg-sembuh {
+    background: rgba(33, 150, 83, .8) !important;
+}
+
+.bg-sembuh:hover {
+    background: rgba(33, 150, 83, 1) !important;
+}
+
+.bg-meninggal {
+    background: rgba(216, 35, 42, .8) !important;
+}
+
+.bg-meninggal:hover {
+    background: rgba(216, 35, 42, 1) !important;
+}
