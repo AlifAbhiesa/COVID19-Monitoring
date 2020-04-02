@@ -388,7 +388,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var chartDataPositif = [];
       var chartLabel = [];
 
-      // dat card
+      // dat card country positif meninggal sembuh
       $.ajax({
         url: "https://covid19.mathdro.id/api/countries/" + country,
         type: "GET",
@@ -405,6 +405,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
           alert('error');
         }
       });
+
+      //dat card indonesia aktif kasus kematian
+      $.ajax({
+        url: "https://corona.lmao.ninja/countries/"+country,
+        type: "GET",
+        success: function(response){
+          response.active ? $('#aktif').text(response.active.toString().replace(
+             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#aktif').text('Not available yet today');
+           response.todayCases ? $('#kasus').text(response.todayCases.toString().replace(
+             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#kasus').text('Not available yet today');
+           response.todayDeaths ? $('#kematian').text(response.todayDeaths.toString().replace(
+             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#kematian').text('Not available yet today');
+        },
+        error: function(){
+          alert('error');
+        }
+      });
+
 
       //data bar chart
       $.ajax({
