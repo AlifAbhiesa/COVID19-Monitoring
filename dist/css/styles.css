@@ -2,6 +2,59 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Navbar */
+.navbar-light .navbar-nav .nav-link {
+    font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link:focus {
+    font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #ff9234;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #ff9234;
+}
+
+/* Main Information */
+.card-header {
+    background-color: rgba(255, 146, 52, .8);
+    border-bottom: none;
+}
+
+.card-header h3 {
+    font-weight: 600;
+    font-size: 22px;
+    color: white;
+}
+
+.card-header .btn-link {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: rgba(255, 146, 52, .8);
+    border-color: rgba(255, 146, 52, .8);
+}
+
+.btn-primary {
+    background-color: rgba(255, 146, 52, .8);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 146, 52, 1) !important;
+}
+
 h3#positif {
     color: #ff9234;
 }
@@ -32,10 +85,26 @@ a.small-box-footer {
 
 .rowMoreHidden {
     display: none;
+    animation: disappear 1s ease-in-out;
 }
 
-.rowMoreHidden {
-    display: none;
+.animatee {
+    animation: appear 1s ease-in-out;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        flex: 0;
+
+    }
+
+    100% {
+        flex-basis: auto;
+        flex-grow: 1;
+        opacity: 1;
+        flex: 1;
+    }
 }
 
 .small-box {
@@ -93,4 +162,137 @@ a.small-box-footer {
 
 .bg-meninggal:hover {
     background: rgba(216, 35, 42, 1) !important;
+}
+
+
+.carousel-control-prev .fas,
+.carousel-control-next .fas {
+    color: black;
+}
+
+.form-control:focus {
+    border-color: rgba(255, 146, 52, .8);
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 10px 0;
+}
+
+.page-item.disabled .page-link,
+.page-item:last-child .page-link {
+    font-size: 14px;
+    color: white;
+    background-color: rgba(255, 146, 52, .8);
+    border-radius: 4px;
+}
+
+.page-link {
+    font-size: 14px;
+    color: rgba(255, 146, 52, .8);
+    border: none;
+    margin-right: .5rem;
+}
+
+.page-link:hover {
+    border-radius: 4px;
+    color: white;
+    background-color: rgba(255, 146, 52, .8);
+    border-color: rgba(255, 146, 52, .8);
+}
+
+.page-item.active .page-link {
+    font-size: 14px;
+    background-color: rgba(255, 146, 52, .8);
+    border-radius: 4px;
+}
+
+
+/* 
+    FAQ Pages
+*/
+
+.accordion-title {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion-title:hover,
+.accordion-title:hover::after {
+    cursor: pointer;
+    color: #03b5d2;
+}
+
+.accordion-title:hover::after {
+    border: 1px solid #03b5d2;
+}
+
+.accordion-title.active {
+    color: #03b5d2;
+    border-bottom: 1px solid #03b5d2;
+}
+
+.icons {
+    font-style: normal;
+    position: absolute;
+    float: right;
+    right: 1rem;
+    font-size: 1rem;
+    color: #7288a2;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #7288a2;
+    text-align: center;
+}
+
+.icons::after {
+    content: "\f067";
+}
+
+.accordion-title.active .icons::after {
+    content: '\f068';
+    color: #03b5d2;
+}
+
+.accordion-faq .accordion-content {
+    opacity: 0;
+    padding: 0 1rem;
+    max-height: 0;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    clear: both;
+    -webkit-transition: all 0.2s ease 0.15s;
+    -o-transition: all 0.2s ease 0.15s;
+    transition: all 0.2s ease 0.15s;
+}
+
+.accordion-faq .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.accordion-faq .accordion-content.active {
+    opacity: 1;
+    padding: 1rem;
+    max-height: 100%;
+    -webkit-transition: all 0.35s ease 0.15s;
+    -o-transition: all 0.35s ease 0.15s;
+    transition: all 0.35s ease 0.15s;
 }
