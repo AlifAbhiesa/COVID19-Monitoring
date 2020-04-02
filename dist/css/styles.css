@@ -178,19 +178,32 @@ div.dataTables_wrapper div.dataTables_paginate {
     margin: 10px 0;
 }
 
+/* Pagination */
 .page-item.disabled .page-link,
-.page-item:last-child .page-link {
+.page-item:last-child .page-link,
+.page-item:first-child .page-link {
     font-size: 14px;
     color: white;
+    font-weight: 600;
     background-color: rgba(255, 146, 52, .8);
     border-radius: 4px;
 }
 
 .page-link {
     font-size: 14px;
+    font-weight: 600;
     color: rgba(255, 146, 52, .8);
     border: none;
     margin-right: .5rem;
+}
+
+.page-item.active .page-link {
+    border-color: rgba(255, 146, 52, .8);
+    font-weight: 600;
+}
+
+.page-link:focus {
+    box-shadow: none;
 }
 
 .page-link:hover {
@@ -201,6 +214,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 }
 
 .page-item.active .page-link {
+    font-weight: 600;
     font-size: 14px;
     background-color: rgba(255, 146, 52, .8);
     border-radius: 4px;
