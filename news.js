@@ -12,7 +12,7 @@ function getNews() {
                     '</div>' +
                     '<h5 class="card-title">' + response['articles'][i]['title'] + '</h5>' +
                     '<p class="card-text">' + response['articles'][i]['description'] + '</p>' +
-                    '<a target="_blank" href="' + response['articles'][i]['url'] + '" style="color: burlywood;">Baca Selengkapnya ...</a><br>' +
+                    '<a target="_blank" href="' + response['articles'][i]['url'] + '" class="btn btn-secondary">Baca Selengkapnya...</a><br>' +
                     '</div>' +
                     '</div>');
             }
