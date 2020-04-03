@@ -1,6 +1,6 @@
 function getNews() {
     $.ajax({
-        url:"http://newsapi.org/v2/everything?q=COVID-19&domains=detik.com&from=2020-04-01&sortBy=publishedAt&apiKey=3ea3b5c45dab4a8491123c8567648e72",
+        url:"https://newsapi.org/v2/everything?q=COVID-19&domains=detik.com&from=2020-04-01&sortBy=publishedAt&apiKey=3ea3b5c45dab4a8491123c8567648e72",
         type:"GET",
         success:function(response) {
             for (i = 0; i < 15; i++) {
