@@ -62,23 +62,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Wrapper. Contains page content -->
     <div style="margin-left: 0px; padding-top: 2%;" class="content-wrapper">
       <!-- Content Header (Page header) -->
+      <a id="scroll-top"><i class="fas fa-angle-up"></i></a>
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">COVID-19 Monitoring</h1>
-              <h3>
+              <h1 class="mb-2 text-dark" style="font-weight: 700;">COVID-19 Monitoring</h1>
+              <h3 class="btn btn-secondary btn-sm">
                 <label id="country"> Country </label>/
-                <label id="date"> Date </label></h3>
+                <label id="date"> Date </label>
+              </h3>
             </div><!-- /.col -->
             <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <select onchange="getData()" id="countrySelect" class="form-control select2bs4" data-select2-id="1"
-                  tabindex="-1" aria-hidden="true">
-                  <option selected="selected" value="Indonesia">--- Pick One --</option>
-
-                </select>
-              </ol>
+              <select onchange="getData()" id="countrySelect" class="form-control select2bs4" data-select2-id="1"
+                tabindex="-1" aria-hidden="true" style="max-width: 100%;">
+                <option selected="selected" value="Indonesia">--- Pilih Negara --</option>
+              </select>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -152,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <div class="row btnMore">
                 <div class="col-lg-12">
-                  <button type="button" id="showMore" class="btn btn-lg btn-block btn-primary">More <i
+                  <button type="button" id="showMore" class="btn btn-lg btn-block btn-secondary">More <i
                       class="fas fa-angle-double-down" style="margin-left: 10px;"></i></button>
                 </div>
               </div>
@@ -199,10 +198,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <h3 class="card-title">Data Statistik</h3>
 
               <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"
+                    style="color: white;"></i>
                 </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                    class="fas fa-times"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"
+                    style="color: white"></i></button>
               </div>
             </div>
             <div class="card-body">
@@ -280,38 +280,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
             </div>
             <div class="card-body">
-              <li>
-                https://github.com/mathdroid/covid-19-api
-              </li>
-              <li>
-                https://github.com/pomber/covid19
-              </li>
-              <h1>Data Source</h1>
-              <li>
-                World Health Organization (WHO): https://www.who.int/
-              </li>
-              <li>
-                DXY.cn. Pneumonia. 2020. http://3g.dxy.cn/newh5/view/pneumonia.
-              </li>
-              <li>
-                BNO News: https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/
-              </li>
-              <li>
-                National Health Commission of the People’s Republic of China (NHC):
-                http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml
-              </li>
-              etc.
-
-              <h1>News Source</h1>
-              <li>
-                Detik.com
-              </li>
-
-
-
-              <h1>License</h1>
+              <h2>API DATA</h2>
+              <ul class="list-no-style">
+                <li>
+                  <a href="https://github.com/mathdroid/covid-19-api" class="btn btn-secondary">
+                    https://github.com/mathdroid/covid-19-api
+                  </a>
+                </li>
+                <li href=" https://github.com/pomber/covid19" class="btn btn-secondary">
+                  https://github.com/pomber/covid19
+                </li>
+              </ul>
+              <h2>Data Source</h2>
+              <ul class="list-no-style">
+                <li>
+                  <a href="https://www.who.int/" class="btn btn-secondary">
+                    World Health Organization (WHO)
+                  </a>
+                </li>
+                <li>
+                  <a href="http://3g.dxy.cn/newh5/view/pneumonia" class="btn btn-secondary">
+                    DXY.cn. Pneumonia. 2020.
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/"
+                    class="btn btn-secondary">
+                    BNO News:
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" class="btn btn-secondary">
+                    National Health Commission of the People’s Republic of China (NHC):
+                  </a>
+                </li>
+                etc.
+              </ul>
+              <h2>News Source</h2>
+              <ul class="list-no-style">
+                <li>
+                  <a href="https://www.detik.com" class="btn btn-secondary">
+                    Detik.com
+                  </a>
+                </li>
+              </ul>
+              <h2>License</h2>
               <p>MIT License 2020, HMIF.<br>
-
                 Transitively from the John Hopkins Site, the data may not be used for commercial purposes.</p>
             </div>
             <!-- /.card-body -->
@@ -341,11 +355,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div style="background: transparent;" class="modal-content">
-
+      <div style="background: white;" class="modal-content p-5">
         <div class="">
           <center><img src="source.gif" width="100px" height="100px"></center>
-
         </div>
         <button hidden id="closeModal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -367,6 +379,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="news.js"></script>
 
   <script>
+    // Button Scroll Top
+    const btnScrollTop = $('#scroll-top');
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 300) {
+        btnScrollTop.addClass('show');
+      } else {
+        btnScrollTop.removeClass('show');
+      }
+    });
+
+    btnScrollTop.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, '300');
+    });
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     });

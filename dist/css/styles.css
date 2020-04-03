@@ -2,6 +2,58 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
+    color: #22b9ff;
+}
+
+ul.list-no-style {
+    list-style-type: none;
+    padding-inline-start: 0.8rem;
+}
+
+.list-no-style li {
+    margin-bottom: 15px;
+}
+
+#scroll-top {
+    display: inline-block;
+    background-color: #22b9ff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#scroll-top i {
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+
+
+#scroll-top:hover {
+    cursor: pointer;
+    background-color: #1199d8;
+}
+
+#scroll-top:active {
+    background-color: #1199d8;
+}
+
+#scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Navbar */
 .navbar-light .navbar-nav .nav-link {
     font-weight: 600;
@@ -53,6 +105,21 @@
 
 .btn-primary:hover {
     background-color: rgba(255, 146, 52, 1) !important;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: rgba(34, 185, 255, .1);
+    color: #22b9ff;
+    border: none;
+    font-weight: 600 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #22b9ff;
+    border: none;
+    cursor: pointer;
 }
 
 h3#positif {
@@ -90,6 +157,10 @@ a.small-box-footer {
 
 .animatee {
     animation: appear 1s ease-in-out;
+}
+
+.select2 .select2-container .select2-container--bootstrap4 .select2-container--below .select12-container--focus {
+    width: 100%;
 }
 
 @keyframes appear {
@@ -220,47 +291,19 @@ div.dataTables_wrapper div.dataTables_paginate {
     border-radius: 4px;
 }
 
-
-/* 
-    FAQ Pages
-*/
-#scroll-top {
-    display: inline-block;
-    background-color: #FF9800;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    border-radius: 4px;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s,
-        opacity .5s, visibility .5s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-}
-
-#scroll-top i {
-    font-size: 2em;
-    line-height: 50px;
-    color: #fff;
-}
-
-#scroll-top:hover {
-    cursor: pointer;
-    background-color: #333;
-}
-
-#scroll-top:active {
-    background-color: #555;
-}
-
-#scroll-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
 .title-faq {
     font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+    #scroll-top {
+        width: 40px;
+        height: 40px;
+        right: 10px;
+    }
+
+    #scroll-top i {
+        font-size: 1.5em;
+        line-height: 40px;
+    }
 }

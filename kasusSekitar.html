@@ -219,14 +219,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
           }, 3000);
 
         for (i = 0; i < data.length; i++) {
-          $('#kasusSekitar').append('<div class="card bg-white col-12 col-lg-4 p-2">' +
+          $('#kasusSekitar').append(
+            '<div class="col-lg-4">' +
+            '<div class="card">' +
+            '<div class="card-header">' +
+            '<h3 class="card-title">' + data[i]['kecamatan_str'] + ', ' + data[i]['kabkot_str'] + '</h3>' +
+            '</div>' +
             '<div class="card-body">' +
-            '<h5 class="card-title">' + data[i]['kecamatan_str'] + ', ' + data[i]['kabkot_str'] + '</h5>' +
             '<p class="card-text">Status : <b>' + data[i]['status'] + '</b> Jarak : <b>' + data[i]['distance']
             .toFixed(2) + '</b> Km</p>' +
             '<a target="_blank" href="https://www.google.com/maps/dir/' + lat + ',' + lng + '/' + data[i][
               'wilayah_status_stage_latitude'
-            ] + ',' + data[i]['wilayah_status_stage_longitude'] + '/" class="card-link">Buka di Maps</a>' +
+            ] + ',' + data[i]['wilayah_status_stage_longitude'] +
+            '/" class="btn btn-secondary btn-sm">Buka di Maps</a>' +
+            '</div>' +
             '</div>' +
             '</div>')
         }
