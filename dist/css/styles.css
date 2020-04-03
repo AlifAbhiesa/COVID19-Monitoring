@@ -159,8 +159,9 @@ a.small-box-footer {
     animation: appear 1s ease-in-out;
 }
 
-.select2 .select2-container .select2-container--bootstrap4 .select2-container--below .select12-container--focus {
-    width: 100%;
+.select2 .select2-container .select2-container--bootstrap4 .select2-container--below .select12-container--focus,
+.select2 .select2-container .select2-container--bootstrap4 {
+    max-width: 100% !important;
 }
 
 @keyframes appear {
