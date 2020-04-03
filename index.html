@@ -160,23 +160,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
 
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <h2>Data Per Provinsi</h2>
-            <div id="courselItemProv" class="carousel-inner">
-              <div class="carousel-item active">
-
-                <div class="card" style="box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05)">
-                  <div class="card-header">
-                  </div>
-                  <div class="card-body">
-                    <center style="font-family: monospace;">Swipe ke kiri untuk melihat data kasus setiap provinsi
-                    </center>
-                  </div>
-                </div>
-
-
+            <div class="card">
+              <div class="card-header">
+                <h3>Data Per Provinsi</h2>
               </div>
+              <div class="card-body">
+                <div id="courselItemProv" class="carousel-inner">
+                  <div class="carousel-item active">
 
+                    <div class="card" style="box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05)">
+                      <div class="card-header">
+                      </div>
+                      <div class="card-body">
+                        <center style="font-family: monospace;">Swipe ke kiri untuk melihat data kasus setiap provinsi
+                        </center>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
             </div>
+
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <i class="fas fa-chevron-left"></i>
               <span class="sr-only">Previous</span>
@@ -189,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Daily Data</h3>
+              <h3 class="card-title">Data Statistik</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -218,11 +225,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <div class="row">
             <div class="col-12">
-
-
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Detail data harian</h3>
+                  <h3 class="card-title">Detail Data Harian</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -250,9 +255,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
           <div class="row py-4">
-            <h2>Berita Terbaru</h2>
-            <div id="newsPlace" style="overflow-x:auto;width:100%;height:100%;display:flex">
+            <div class="card">
+              <div class="card-header">
+                <h3>Berita Terbaru</h3>
+              </div>
+              <div class="card-body">
+                <div id="newsPlace" style="overflow-x:auto;width:100%;height:100%;display:flex">
 
+                </div>
+              </div>
             </div>
           </div>
 
@@ -305,29 +316,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <!-- /.card-body -->
           </div>
-
-
-
-
           <!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content -->
+      <!-- Main Footer -->
+      <footer style="margin-left: 0px;" class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+          Made by &#x2665;
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2020 <a
+            href="https://github.com/AlifAbhiesa/COVID19-Monitoring/graphs/contributors">HMIF
+            TEAM</a>.</strong> All rights reserved.
+      </footer>
     </div>
     <!-- /.content-wrapper -->
-
-
-
-    <!-- Main Footer -->
-    <footer style="margin-left: 0px;" class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Made by &#x2665;
-      </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2020 <a href="https://github.com/AlifAbhiesa/COVID19-Monitoring/graphs/contributors">HMIF
-          TEAM</a>.</strong> All rights reserved.
-    </footer>
   </div>
   <!-- ./wrapper -->
 
@@ -347,26 +352,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </div>
 
-  <!-- REQUIRED SCRIPTS -->
-
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
-
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-
   <script src="plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
   <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
   <script src="plugins/select2/js/select2.full.min.js"></script>
-  <!-- Bootstrap 4 -->
   <script src="dist/js/adminlte.min.js"></script>
-
   <script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- News Feeds API -->
   <script src="news.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> -->
 
   <script>
     $('.select2bs4').select2({
@@ -426,17 +424,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       //dat card indonesia aktif kasus kematian
       $.ajax({
-        url: "https://corona.lmao.ninja/countries/"+country,
+        url: "https://corona.lmao.ninja/countries/" + country,
         type: "GET",
-        success: function(response){
+        success: function (response) {
           response.active ? $('#aktif').text(response.active.toString().replace(
-             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#aktif').text('Not available yet today');
-           response.todayCases ? $('#kasus').text(response.todayCases.toString().replace(
-             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#kasus').text('Not available yet today');
-           response.todayDeaths ? $('#kematian').text(response.todayDeaths.toString().replace(
-             /(\d)(?=(\d{3})+(?!\d))/g, '$1,')): $('#kematian').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#aktif').text('Not available yet today');
+          response.todayCases ? $('#kasus').text(response.todayCases.toString().replace(
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kasus').text('Not available yet today');
+          response.todayDeaths ? $('#kematian').text(response.todayDeaths.toString().replace(
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kematian').text('Not available yet today');
         },
-        error: function(){
+        error: function () {
           alert('error');
         }
       });
@@ -502,14 +500,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
           for (i = 0; i < response['data'].length; i++) {
-            // <div class="col-lg-4">
-            //       <div class="small-box bg-white">
-            //         <div class="inner">
-            //           <h3 id="positif">150</h3>
-            //         </div>
-            //         <a href="#" class="small-box-footer bg-positif">Positif</a>
-            //       </div>
-            //     </div>
             if (response['data'][i]['provinsi'] != "Indonesia") {
               $('#courselItemProv').append('<div class="carousel-item">' +
                 '<div class="card">' +
@@ -552,13 +542,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 '</div>' +
                 '</div>');
             }
-
-
           }
-
-          // 
-
-
         },
         error: function () {
           alert("error");
@@ -586,8 +570,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         labels: chartLabel,
         datasets: [{
             label: 'Positif',
-            backgroundColor: 'rgb(236, 146, 65)',
-            borderColor: 'rgb(236, 146, 65)',
+            backgroundColor: 'rgba(255, 146, 52, .8)',
+            borderColor: 'rgba(255, 146, 52, .8)',
             pointRadius: false,
             pointColor: '#3b8bba',
             pointStrokeColor: 'rgba(60,141,188,1)',
@@ -597,8 +581,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           },
           {
             label: 'Meninggal',
-            backgroundColor: 'rgb(229, 114, 53)',
-            borderColor: 'rgb(229, 114, 53)',
+            backgroundColor: 'rgba(216, 35, 42, .8)',
+            borderColor: 'rgba(216, 35, 42, .8)',
             pointRadius: false,
             pointColor: 'rgba(210, 214, 222, 1)',
             pointStrokeColor: '#c1c7d1',
@@ -608,8 +592,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           },
           {
             label: 'Sembuh',
-            backgroundColor: 'rgb(229, 114, 53)',
-            borderColor: 'rgb(229, 114, 53)',
+            backgroundColor: 'rgba(33, 150, 83, .8)',
+            borderColor: 'rgba(33, 150, 83, .8)',
             pointRadius: false,
             pointColor: 'rgba(210, 214, 222, 1)',
             pointStrokeColor: '#c1c7d1',

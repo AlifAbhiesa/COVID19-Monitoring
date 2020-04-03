@@ -224,89 +224,43 @@ div.dataTables_wrapper div.dataTables_paginate {
 /* 
     FAQ Pages
 */
-
-.accordion-title {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    padding: 1rem 3rem 1rem 1rem;
-    color: #7288a2;
-    font-size: 1.15rem;
-    font-weight: 400;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.accordion-title:hover,
-.accordion-title:hover::after {
-    cursor: pointer;
-    color: #03b5d2;
-}
-
-.accordion-title:hover::after {
-    border: 1px solid #03b5d2;
-}
-
-.accordion-title.active {
-    color: #03b5d2;
-    border-bottom: 1px solid #03b5d2;
-}
-
-.icons {
-    font-style: normal;
-    position: absolute;
-    float: right;
-    right: 1rem;
-    font-size: 1rem;
-    color: #7288a2;
-    padding: 4px;
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 1px solid #7288a2;
+#scroll-top {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
     text-align: center;
-}
-
-.icons::after {
-    content: "\f067";
-}
-
-.accordion-title.active .icons::after {
-    content: '\f068';
-    color: #03b5d2;
-}
-
-.accordion-faq .accordion-content {
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
     opacity: 0;
-    padding: 0 1rem;
-    max-height: 0;
-    border-bottom: 1px solid #e5e5e5;
-    overflow: hidden;
-    clear: both;
-    -webkit-transition: all 0.2s ease 0.15s;
-    -o-transition: all 0.2s ease 0.15s;
-    transition: all 0.2s ease 0.15s;
+    visibility: hidden;
+    z-index: 1000;
 }
 
-.accordion-faq .accordion-content p {
-    font-size: 1rem;
-    font-weight: 300;
+#scroll-top i {
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
 }
 
-.accordion-faq .accordion-content.active {
+#scroll-top:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#scroll-top:active {
+    background-color: #555;
+}
+
+#scroll-top.show {
     opacity: 1;
-    padding: 1rem;
-    max-height: 100%;
-    -webkit-transition: all 0.35s ease 0.15s;
-    -o-transition: all 0.35s ease 0.15s;
-    transition: all 0.35s ease 0.15s;
+    visibility: visible;
+}
+
+.title-faq {
+    font-weight: 600;
 }
