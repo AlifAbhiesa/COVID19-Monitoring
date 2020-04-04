@@ -31,329 +31,327 @@ scratch. This page gets rid of all links and provides the needed markup only.
     rel="stylesheet">
 </head>
 
-<body class="hold-transition sidebar-mini">
-  <div class="wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <a href="http://covid.itenas.tech">
-        <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px" />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="https://covid.itenas.tech/faq.html">Faq</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://covid.itenas.tech/kasusSekitar.html">Kasus Disekitar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://covid.itenas.tech/maps.html">Maps</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://covid.itenas.tech/contacts.html">Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
-          </li>
-
-        </ul>
-      </div>
-    </nav>
-    <!-- Content Wrapper. Contains page content -->
-    <div style="margin-left: 0px; padding-top: 2%;" class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <a id="scroll-top"><i class="fas fa-angle-up"></i></a>
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="mb-2 text-dark" style="font-weight: 700;">COVID-19 Monitoring</h1>
-              <h3 class="btn btn-secondary btn-md">
-                <label id="country"> Country </label>/
-                <label id="date"> Date </label>
-              </h3>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-right-sm">
-
-                <select onchange="getData()" id="countrySelect" class="form-control select2bs4" data-select2-id="1"
-                  tabindex="-1" aria-hidden="true">
-                  <option selected="selected" value="Indonesia">--- Pilih Negara --</option>
-                </select>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-header">
-              <h3>Statistik</h3>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="positif">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-positif">Positif</a>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="sembuh">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-sembuh">Sembuh</a>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="meninggal">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-meninggal">Meninggal</a>
-                  </div>
-                </div>
-              </div>
-
-              <div id="rowMore" class="row rowMoreHidden">
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="aktif">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-positif">Aktif</a>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="kasus">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-sembuh">Kasus Hari Ini</a>
-                  </div>
-                </div>
-
-                <div class="col-lg-4">
-                  <div class="small-box bg-white">
-                    <div class="inner">
-                      <h3 id="kematian">150</h3>
-                    </div>
-                    <a href="#" class="small-box-footer bg-meninggal">Kematian Hari Ini</a>
-                  </div>
-                </div>
-              </div>
-              <div class="row btnMore">
-                <div class="col-lg-12">
-                  <button type="button" id="showMore" class="btn btn-lg btn-block btn-secondary">More <i
-                      class="fas fa-angle-double-down" style="margin-left: 10px;"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="card">
-              <div class="card-header">
-                <h3>Data Per Provinsi</h2>
-              </div>
-              <div class="card-body">
-                <div id="courselItemProv" class="carousel-inner">
-                  <div class="carousel-item active">
-
-                    <div class="card" style="box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05)">
-                      <div class="card-header">
-                      </div>
-                      <div class="card-body">
-                        <center style="font-family: monospace;">Swipe ke kiri untuk melihat data kasus setiap provinsi
-                        </center>
-                      </div>
-                    </div>
-
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <i class="fas fa-chevron-left"></i>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <i class="fas fa-chevron-right"></i>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Data Statistik</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"
-                    style="color: white;"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"
-                    style="color: white"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="chart">
-                <div class="chartjs-size-monitor">
-                  <div class="chartjs-size-monitor-expand">
-                    <div class=""></div>
-                  </div>
-                  <div class="chartjs-size-monitor-shrink">
-                    <div class=""></div>
-                  </div>
-                </div>
-                <canvas id="barChart"
-                  style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;"
-                  width="313" height="250" class="chartjs-render-monitor"></canvas>
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Detail Data Harian</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>Tanggal</th>
-                        <th>Positif</th>
-                        <th>Sembuh</th>
-                        <th>Meninggal</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tableBody">
-
-
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col -->
-          </div>
-
-
-          <div class="row py-4">
-            <div class="card">
-              <div class="card-header">
-                <h3>Berita Terbaru</h3>
-              </div>
-              <div class="card-body">
-                <div id="newsPlace" style="overflow-x:auto;width:100%;height:100%;display:flex">
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">API DATA</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
-                    class="fas fa-times"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <h2>API DATA</h2>
-              <ul class="list-no-style">
-                <li>
-                  <a href="https://github.com/mathdroid/covid-19-api" class="btn btn-secondary">
-                    https://github.com/mathdroid/covid-19-api
-                  </a>
-                </li>
-                <li href=" https://github.com/pomber/covid19" class="btn btn-secondary">
-                  https://github.com/pomber/covid19
-                </li>
-              </ul>
-              <h2>Data Source</h2>
-              <ul class="list-no-style">
-                <li>
-                  <a href="https://www.who.int/" class="btn btn-secondary">
-                    World Health Organization (WHO)
-                  </a>
-                </li>
-                <li>
-                  <a href="http://3g.dxy.cn/newh5/view/pneumonia" class="btn btn-secondary">
-                    DXY.cn. Pneumonia. 2020.
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/"
-                    class="btn btn-secondary">
-                    BNO News:
-                  </a>
-                </li>
-                <li>
-                  <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" class="btn btn-secondary">
-                    National Health Commission of the People’s Republic of China (NHC):
-                  </a>
-                </li>
-                etc.
-              </ul>
-              <h2>News Source</h2>
-              <ul class="list-no-style">
-                <li>
-                  <a href="https://www.detik.com" class="btn btn-secondary">
-                    Detik.com
-                  </a>
-                </li>
-              </ul>
-              <h2>License</h2>
-              <p>MIT License 2020, HMIF.<br>
-                Transitively from the John Hopkins Site, the data may not be used for commercial purposes.</p>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content -->
-      <!-- Main Footer -->
-      <footer style="margin-left: 0px;" class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
-          Made by &#x2665;
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2020 <a
-            href="https://github.com/AlifAbhiesa/COVID19-Monitoring/graphs/contributors">HMIF
-            TEAM</a>.</strong> All rights reserved.
-      </footer>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a href="http://covid.itenas.tech">
+      <img src="https://www.itenas.ac.id/wp-content/uploads/2019/01/Logo-itenas-04.png" height="60px" width="140px" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="https://covid.itenas.tech/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://covid.itenas.tech/faq.html">Faq</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://covid.itenas.tech/kasusSekitar.html">Kasus Disekitar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://covid.itenas.tech/maps.html">Maps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://covid.itenas.tech/contacts.html">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/AlifAbhiesa/COVID19-Monitoring">Developer Area</a>
+        </li>
+      </ul>
     </div>
-    <!-- /.content-wrapper -->
+  </nav>
+  <!-- Content Wrapper. Contains page content -->
+  <div style="margin-left: 0px; padding-top: 2%;" class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <a id="scroll-top"><i class="fas fa-angle-up"></i></a>
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="mb-2 text-dark" style="font-weight: 700;">COVID-19 Monitoring</h1>
+            <h3 class="btn btn-secondary btn-md">
+              <label id="country"> Country </label>/
+              <label id="date"> Date </label>
+            </h3>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right-sm">
+
+              <select onchange="getData()" id="countrySelect" class="form-control select2bs4" data-select2-id="1"
+                tabindex="-1" aria-hidden="true">
+                <option selected="selected" value="Indonesia">--- Pilih Negara --</option>
+              </select>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header">
+            <h3>Statistik</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="positif">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-positif">Positif</a>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="sembuh">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-sembuh">Sembuh</a>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="meninggal">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-meninggal">Meninggal</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="rowMore" class="row rowMoreHidden">
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="aktif">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-positif">Aktif</a>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="kasus">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-sembuh">Kasus Hari Ini</a>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="small-box bg-white">
+                  <div class="inner">
+                    <h3 id="kematian">150</h3>
+                  </div>
+                  <a href="#" class="small-box-footer bg-meninggal">Kematian Hari Ini</a>
+                </div>
+              </div>
+            </div>
+            <div class="row btnMore">
+              <div class="col-lg-12">
+                <button type="button" id="showMore" class="btn btn-lg btn-block btn-secondary">More <i
+                    class="fas fa-angle-double-down" style="margin-left: 10px;"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="card">
+            <div class="card-header">
+              <h3>Data Per Provinsi</h2>
+            </div>
+            <div class="card-body">
+              <div id="courselItemProv" class="carousel-inner">
+                <div class="carousel-item active">
+
+                  <div class="card" style="box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05)">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                      <center style="font-family: monospace;">Swipe ke kiri untuk melihat data kasus setiap provinsi
+                      </center>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <i class="fas fa-chevron-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Data Statistik</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"
+                  style="color: white;"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"
+                  style="color: white"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart">
+              <div class="chartjs-size-monitor">
+                <div class="chartjs-size-monitor-expand">
+                  <div class=""></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink">
+                  <div class=""></div>
+                </div>
+              </div>
+              <canvas id="barChart"
+                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;"
+                width="313" height="250" class="chartjs-render-monitor"></canvas>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Detail Data Harian</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Tanggal</th>
+                      <th>Positif</th>
+                      <th>Sembuh</th>
+                      <th>Meninggal</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody">
+
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
+
+        <div class="row py-4">
+          <div class="card">
+            <div class="card-header">
+              <h3>Berita Terbaru</h3>
+            </div>
+            <div class="card-body">
+              <div id="newsPlace" style="overflow-x:auto;width:100%;height:100%;display:flex">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">API DATA</h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <h2>API DATA</h2>
+            <ul class="list-no-style">
+              <li>
+                <a href="https://github.com/mathdroid/covid-19-api" class="btn btn-secondary">
+                  https://github.com/mathdroid/covid-19-api
+                </a>
+              </li>
+              <li href=" https://github.com/pomber/covid19" class="btn btn-secondary">
+                https://github.com/pomber/covid19
+              </li>
+            </ul>
+            <h2>Data Source</h2>
+            <ul class="list-no-style">
+              <li>
+                <a href="https://www.who.int/" class="btn btn-secondary">
+                  World Health Organization (WHO)
+                </a>
+              </li>
+              <li>
+                <a href="http://3g.dxy.cn/newh5/view/pneumonia" class="btn btn-secondary">
+                  DXY.cn. Pneumonia. 2020.
+                </a>
+              </li>
+              <li>
+                <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/" class="btn btn-secondary">
+                  BNO News:
+                </a>
+              </li>
+              <li>
+                <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" class="btn btn-secondary">
+                  National Health Commission of the People’s Republic of China (NHC):
+                </a>
+              </li>
+              etc.
+            </ul>
+            <h2>News Source</h2>
+            <ul class="list-no-style">
+              <li>
+                <a href="https://www.detik.com" class="btn btn-secondary">
+                  Detik.com
+                </a>
+              </li>
+            </ul>
+            <h2>License</h2>
+            <p>MIT License 2020, HMIF.<br>
+              Transitively from the John Hopkins Site, the data may not be used for commercial purposes.</p>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+    <!-- Main Footer -->
+    <footer style="margin-left: 0px;" class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Made by &#x2665;
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2020 <a href="https://github.com/AlifAbhiesa/COVID19-Monitoring/graphs/contributors">HMIF
+          TEAM</a>.</strong> All rights reserved.
+    </footer>
   </div>
+  <!-- /.content-wrapper -->
+
   <!-- ./wrapper -->
 
 

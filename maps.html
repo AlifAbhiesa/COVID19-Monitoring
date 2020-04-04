@@ -48,6 +48,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
+        <a class="nav-link" href="https://covid.itenas.tech/index.html">Home</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="https://covid.itenas.tech/faq.html">Faq</a>
       </li>
       <li class="nav-item">
@@ -98,6 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/chart.js/Chart.min.js"></script>
 <script>
   initData();
+
   function initData() {
     $.ajax({
       url: "https://covid19-public.digitalservice.id/analytics/longlat/",
@@ -113,7 +117,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           if (response['data'][i]['alamat_longitude'] != null) {
             var latDest = response['data'][i].wilayah_status_stage_latitude;
             var lngDest = response['data'][i].wilayah_status_stage_longitude;
-            var node = {lat: latDest, lng: lngDest};
+            var node = {
+              lat: latDest,
+              lng: lngDest
+            };
             var status = response['data'][i].status;
             marker[i] = setMarker(node, map, status);
             addInfo(
@@ -134,65 +141,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
         alert("error");
       }
     });
-    
+
   }
 
-  function addInfo(marker,id,status,kabkot_str,kecamatan_str,desa_str,jenis_kelamin_str,umur){
-    contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">'+status+'</h1>'+
-            '<div id="bodyContent">'+
-            '<p>Lokasi : <b>'+ desa_str+', '+ kecamatan_str+', '+ kabkot_str +'</b><br>'+
-            '<p>Jenis Kelamnin : <b>'+ jenis_kelamin_str+'</b>'+
-            '<p>Usia : <b>'+ umur+'</b>'+
-            '</div>'+
-            '</div>';
-            id = new google.maps.InfoWindow({
-              content: contentString
-            });
+  function addInfo(marker, id, status, kabkot_str, kecamatan_str, desa_str, jenis_kelamin_str, umur) {
+    contentString = '<div id="content">' +
+      '<div id="siteNotice">' +
+      '</div>' +
+      '<h1 id="firstHeading" class="firstHeading">' + status + '</h1>' +
+      '<div id="bodyContent">' +
+      '<p>Lokasi : <b>' + desa_str + ', ' + kecamatan_str + ', ' + kabkot_str + '</b><br>' +
+      '<p>Jenis Kelamnin : <b>' + jenis_kelamin_str + '</b>' +
+      '<p>Usia : <b>' + umur + '</b>' +
+      '</div>' +
+      '</div>';
+    id = new google.maps.InfoWindow({
+      content: contentString
+    });
 
-            marker.addListener('click', function() {
-              id.open(map, marker);
-            });
+    marker.addListener('click', function () {
+      id.open(map, marker);
+    });
   }
 
-  function initMap(){
-    var bandung = {lat: -6.902160, lng: 107.619110};
+  function initMap() {
+    var bandung = {
+      lat: -6.902160,
+      lng: 107.619110
+    };
     var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 15, center: bandung});
+      document.getElementById('map'), {
+        zoom: 15,
+        center: bandung
+      });
     return map;
   }
 
-  function setMarker(node, map, status){
+  function setMarker(node, map, status) {
     var dot = '';
     var label = '';
 
-    if (status == 'Positif'){
+    if (status == 'Positif') {
       dot = 'red-dot.png';
       label = 'pos';
-    }else if (status == 'ODP'){
+    } else if (status == 'ODP') {
       dot = 'green-dot.png';
       label = 'odp';
-    }else if(status == 'PDP'){
+    } else if (status == 'PDP') {
       dot = 'yellow-dot.png';
       label = 'pdp';
     }
     let marker = new google.maps.Marker({
-      position: node, 
+      position: node,
       map: map,
       title: 'Hello World!',
       animation: google.maps.Animation.DROP,
       icon: {
-      url: "http://maps.google.com/mapfiles/ms/icons/"+dot
+        url: "http://maps.google.com/mapfiles/ms/icons/" + dot
       }
     });
-   
+
     return marker;
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqbm_elcDKWWLMF2YT9a8-9Q0fns2YTEo&callback=initMap" async
   defer>
-  </script>
+</script>
 
 </html>

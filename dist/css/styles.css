@@ -56,7 +56,7 @@ ul.list-no-style {
 
 /* Navbar */
 .navbar-light .navbar-nav .nav-link {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .navbar-light .navbar-nav .nav-link:focus {
@@ -294,7 +294,12 @@ div.dataTables_wrapper div.dataTables_paginate {
     border-radius: 4px;
 }
 
-.title-faq {
+.tb-thead {
+    background-color: rgba(255, 146, 52, .8);
+    color: white;
+}
+
+.btn-info {
     font-weight: 600;
 }
 
