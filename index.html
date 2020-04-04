@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="card">
           <div class="card-header">
-            <h3>Statistik</h3>
+            <h3>Informasi COVID-19</h3>
           </div>
           <div class="card-body">
             <div class="row">
@@ -238,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="table-detail" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Tanggal</th>
@@ -311,12 +311,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
               <li>
                 <a href="https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/" class="btn btn-secondary">
-                  BNO News:
+                  BNO News
                 </a>
               </li>
               <li>
                 <a href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml" class="btn btn-secondary">
-                  National Health Commission of the People’s Republic of China (NHC):
+                  National Health Commission of the People’s Republic of China (NHC)
                 </a>
               </li>
               etc.
@@ -356,7 +356,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  <div class="modal fade" id="modalLoad" tabindex="-1" role="dialog" aria-labelledby="modalLoadTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div style="background: white;" class="modal-content p-5">
@@ -418,12 +418,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       hideShowDataProvinsi();
 
-      $('#exampleModalCenter').modal('toggle');
+      $('#modalLoad').modal('toggle');
 
 
       var country = document.getElementById("countrySelect").value;
-      $('#example1').dataTable().fnDestroy();
-      var table = $("#example1").DataTable({
+      $('#table-detail').dataTable().fnDestroy();
+      var table = $("#table-detail").DataTable({
         "responsive": true,
         "autoWidth": false,
         "order": [
@@ -437,18 +437,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var chartDataPositif = [];
       var chartLabel = [];
 
-      // dat card country positif meninggal sembuh
+      // data card country positif meninggal sembuh
       $.ajax({
         url: "https://covid19.mathdro.id/api/countries/" + country,
         type: "GET",
         success: function (response) {
           $('#date').text(response.lastUpdate);
           response.confirmed.value ? $('#positif').text(response.confirmed.value.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#positif').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#positif').text('Tidak Ada');
           response.deaths.value ? $('#meninggal').text(response.deaths.value.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#meninggal').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#meninggal').text('Tidak Ada');
           response.recovered.value ? $('#sembuh').text(response.recovered.value.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#sembuh').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#sembuh').text('Tidak Ada');
         },
         error: function () {
           alert('error');
@@ -461,11 +461,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         type: "GET",
         success: function (response) {
           response.active ? $('#aktif').text(response.active.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#aktif').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#aktif').text('Tidak ada');
           response.todayCases ? $('#kasus').text(response.todayCases.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kasus').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kasus').text('Tidak Ada');
           response.todayDeaths ? $('#kematian').text(response.todayDeaths.toString().replace(
-            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kematian').text('Not available yet today');
+            /(\d)(?=(\d{3})+(?!\d))/g, '$1,')) : $('#kematian').text('Tidak Ada');
         },
         error: function () {
           alert('error');
@@ -687,7 +687,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       //   $( "#closeModal" ).click();
       // }, 3000);
 
-      var table = $("#example1").DataTable();
+      var table = $("#table-detail").DataTable();
       table.clear();
 
       for (i = 0; i < chartDataPositif.length; i++) {
