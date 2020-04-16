@@ -12,7 +12,7 @@ Tampilan Website COVID-19 Monitoring
 ------------------------------------
 Visit website http://covid.itenas.tech untuk melihat langsung
 
-!["COVID-19"](https://i.ibb.co/fH0qtBv/Screenshot-at-Mar-26-16-54-37.png "COVID-19")
+!["COVID-19"](https://i.ibb.co/5GpqVYX/Screenshot-at-Apr-16-23-33-28.png "COVID-19")
 
 Cara Berkontribusi
 ------------------
