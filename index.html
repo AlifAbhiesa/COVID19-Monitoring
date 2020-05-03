@@ -459,7 +459,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       //dat card indonesia aktif kasus kematian
       $.ajax({
-        url: "https://corona.lmao.ninja/v2/countries/" + country,
+        url: "https://corona.lmao.ninja/countries/" + country,
         type: "GET",
         success: function (response) {
           response.active ? $('#aktif').text(response.active.toString().replace(
